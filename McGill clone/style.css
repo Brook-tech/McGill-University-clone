@@ -1,0 +1,516 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: white;
+    overflow-x: hidden; /*Prevents horizontal scroll*/
+}
+.header-wrapper{
+    box-shadow: 0 0 4px rgb(147, 147, 147);
+}
+.internal-wrapper{
+    height: 100%;/*helps the header-links-wrapper fill the height at mobile*/
+    margin: 0 auto;/*centers the wrapper horizontally once the max-width kicks in at desktop*/
+    padding: 0px 15px;/*adds spacing so that content doesnt touch the screen edges*/
+}
+.header-links-wrapper{
+    height: 100%;/*makes the header-links-wrapper fill the full height of internal-wrapper inside the header
+    so that the nav items are vertically aligned*/
+}
+.header-links-wrapper ul{
+    display: flex;/*flex + direction stacks the nav items vertically on mobile*/
+    flex-direction: column;
+    align-items: stretch;/*makes each li fill the full width*/
+    height: 100%;/*fills the header*/
+    list-style: none;/*removes the bullets*/
+}
+.header-links-wrapper ul li{
+    border: 2px solid black;
+    margin-bottom: 8px;
+}
+.header-links-wrapper ul li:first-child, ul li:last-child{
+    border: none;
+}
+.header-links-wrapper ul li a{
+    text-decoration: none;/*erase underlines*/
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 25px;
+    display: block;/*makes the entire li tappable*/
+}
+.header-links-wrapper ul li a::before {
+    content: "+ \00a0\00a0";
+    font-weight: 400;
+}
+.header-links-wrapper ul li:first-child a::before, ul li:last-child a::before{
+    content: none;
+}
+.header-links-wrapper ul li.logo-link{
+    background-color: rgb(234, 51, 51);
+    align-self: center;
+    display: flex;
+    padding: 15px;
+    z-index: 5;/*lets the logo overlap the border*/
+    margin-bottom: -50px;/*the downward overlapping effect onto the nav item*/
+    box-shadow: 2px 2px rgb(178, 178, 178);
+}
+.header-links-wrapper ul li.logo-link a{
+    padding: 0;/*resets the padding of the general li a rule*/
+    display: flex;
+    align-items: center;
+}
+.header-links-wrapper ul li.logo-link img{
+    height: 38px;/*Conrols the logo rendering size*/
+    width: 100%;
+}
+.header-links-wrapper ul li:nth-child(2) a{
+    padding-top: 32px;/*makes it more visible and not hidden under the logo*/
+}
+.header-links-wrapper ul li:last-child{
+    align-self: flex-end;/*pushes the fr to the right*/
+    margin-top: 10px;
+    margin-bottom: 15px;
+}.header-links-wrapper ul li:last-child a{
+    padding: 0;/*removes the general li a padding that would wrap fr into extra space*/
+}
+.header-links-wrapper button{
+    background: transparent;
+    border: 2px solid black;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.header-links-wrapper button:hover{
+    background-color: black;
+    color: white;
+}
+.main-content{
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+.features-section h2, .news-section h2{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+.hero-section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.hero-text-box h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 36px;
+    line-height: 1.2;/*space between each line of the element*/
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+.hero-text-box a{
+    display: inline-block;
+    color: red;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid red;
+    padding-bottom: 4px;
+    opacity: 0.8;
+}
+.hero-text-box a:hover{
+    opacity: 1;
+    border-bottom: 4px solid red;
+}
+.hero-image-box img{
+    width: 100%;/*make the hero image responsive and proportional*/
+    height: auto;
+    display: block;/*removes small gaps below inline images caused by default inline*/
+}
+.search-section{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(241, 241, 241);
+    padding: 100px 0;
+    margin-bottom: 60px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+.search-container{
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+}
+.search-container input{
+    flex: 1;/*makes the input fill available */
+    padding: 10px 14px;
+    font-size: 14px;
+    outline: none;
+}
+.search-container button{
+    background-color: black;
+    border: none;
+    margin-left: 5px;
+    padding: 0 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+.search-container button:hover{
+    background-color: red;
+}
+.search-container button img{
+    width: 20px;
+    height: auto;
+}
+.features-section{
+    margin-bottom: 50px;
+}
+.three-col-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.feature-card:hover{
+    box-shadow: 15px 0 10px rgba(0, 0, 0, 0.15);
+}
+.feature-card img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+}
+.feature-card h3{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+.feature-card p{
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 5px;
+}
+.cta-section{
+    margin-bottom: 60px;
+}
+.cta-box{
+    background-color: black;
+    color: white;
+    padding: 56px;
+    text-align: center;
+}
+.cta-box h3{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta-box a{
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+}
+.news-section{
+    margin-bottom: 40px;
+}
+.four-col-grid{
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.news-item{
+    border-top: 1px solid rgb(192, 192, 192);
+    padding-top: 15px;
+}
+.news-item:hover{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+.news-item h3{
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+.news-item p{
+    font-size: 13px;
+    color: rgb(44, 44, 44);
+    line-height: 1.4;
+    padding-top: 30px;
+}
+.more-news-link{
+    display: inline-block;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+    padding-bottom: 4px;
+}
+.more-news-link:hover{
+    border-bottom: 4px solid black;
+}
+.footer-wrapper{
+    color: white;
+    line-height: 1.6;
+    margin-top: 50px;
+}
+.footer-wrapper a{
+    color: white;
+    text-decoration: none;
+    transition: color .2s;
+}
+.footer-wrapper a:hover{
+    text-decoration: underline;
+}
+.footer-container{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+.footer-wrapper ul{
+    list-style: none;
+}
+.footer-wrapper li{
+    margin-bottom: 10px;
+}
+.footer-top{
+    background-color: rgb(21, 21, 21);
+}
+.audience-columns{
+    display: flex;
+    flex-direction: column;
+}
+.footer-col h4{
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.audience-columns .footer-col h4{
+    border: 1px solid white;
+    margin-bottom: 0;
+    padding: 20px;
+    cursor: pointer;
+}
+.audience-columns .footer-col{
+    margin-bottom: 10px;
+}
+.audience-columns .footer-col h4:before{
+    content: "+ \00a0\00a0";
+    font-weight: 400;
+}
+.audience-columns .footer-col ul{
+    display: none;
+}
+.footer-middle{
+    background-color: black;
+}
+.info-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 15px;
+    margin-bottom: 40px;
+}
+.footer-middle h4{
+    font-size: 23px;
+    font-weight: 500;
+}
+.footer-middle p{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.icon-wrapper ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.icon-wrapper i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.fa-brands{
+    color: white
+}
+.fa-brands:hover{
+    color: red;
+}
+.footer-bottom{
+    background-color: black;
+    border-top: 1px solid white;
+}
+.footer-bottom .footer-container{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+.copyright-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+.copyright-area img{
+    height: 35px;
+}
+.legal-links ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.legal-links button{
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 6px 16px;
+    border-radius: 3px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+}
+.legal-links button:hover{
+    background-color: white;
+    color: black;
+}
+@media(min-width: 1013px) {
+    .header-wrapper{
+        height: 65px;
+        box-shadow: 0 0 4px rgb(147, 147, 147);
+        padding-top: 0;
+    }
+    .header-links-wrapper ul{
+        flex-direction: row;
+        align-items: center;
+    }
+    .header-links-wrapper ul li{
+        border: none;
+        margin-bottom: 0;
+    }
+    .header-links-wrapper ul li a::before{
+        content: none;
+    }
+    .header-links-wrapper ul li a{
+        padding: 0 25px;
+    }
+    .header-links-wrapper ul li:nth-child(2) a{
+        padding-top: 0;
+    }
+    .header-links-wrapper ul li.logo-link{
+        align-self: auto;
+        height: 115%;
+        margin-bottom: 0;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0 25px;
+    }
+    .header-links-wrapper ul li.logo-link img{
+        height: 45px;
+    }
+    .header-links-wrapper ul li:last-child{
+        align-self: auto;
+        margin-left: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .header-links-wrapper button{
+        padding: 10px;
+    }
+    .internal-wrapper{
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .hero-section{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5%;
+    }
+    .hero-text-box{
+        flex: 1;
+    }
+    .hero-image-box{
+        flex: 1;
+    }
+    .hero-text-box h1{
+        font-size: 48px;
+    }
+    .three-col-grid{
+        flex-direction: row;
+    }
+    .feature-card{
+        flex: 1;
+    }
+    .cta-box{
+        padding: 40px;
+    }
+    .four-col-grid{
+        flex-direction: row;
+        gap: 20px;
+    }
+    .news-item{
+        flex: 1;
+    }
+    .audience-columns{
+        flex-direction: row;
+        gap: 120px;
+    }
+    .footer-col h4{
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    .audience-columns .footer-col h4{
+        border: none;
+        padding: 0;
+        padding-bottom: 10px;
+        cursor: auto;
+    }
+    .audience-columns .footer-col h4:before{
+        content: none;
+    }
+    .audience-columns .footer-col ul{
+        display: block;
+    }
+    .info-columns{
+        display: flex;
+        flex-direction: row;
+        gap: 70px;
+    }
+    .footer-middle p, .footer-middle ul li a{
+        font-size: 16px;
+    }
+    .footer-bottom .footer-container{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+    .copyright-area{
+        display: flex;
+        flex-direction: row;
+        gap: 70px;
+        font-size: 17px;
+    }
+}
